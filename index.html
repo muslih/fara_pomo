@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#6b0f1a" />
+    <meta name="description" content="Fara Pomo — a gentle pomodoro timer, made with care." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Fara Pomo" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Fara Pomo</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <img src="/icon.svg" alt="" width="28" height="28" />
+          <span>Fara Pomo</span>
+        </div>
+        <div class="top-actions">
+          <button class="lang" id="langBtn" aria-label="Switch language">EN</button>
+          <button class="icon-btn" id="settingsBtn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <!-- Timer view -->
+        <section id="view-timer" class="view active">
+          <div class="modes" role="tablist">
+            <button class="mode active" data-mode="focus" data-i18n="focus"></button>
+            <button class="mode" data-mode="short" data-i18n="short"></button>
+            <button class="mode" data-mode="long" data-i18n="long"></button>
+          </div>
+
+          <div class="ring-wrap">
+            <svg class="ring" viewBox="0 0 260 260" aria-hidden="true">
+              <circle class="ring-bg" cx="130" cy="130" r="116" />
+              <circle class="ring-fg" id="ringFg" cx="130" cy="130" r="116" />
+            </svg>
+            <div class="ring-center">
+              <div class="time" id="time">25:00</div>
+              <div class="label" id="phaseLabel"></div>
+            </div>
+          </div>
+
+          <div class="dots" id="dots" aria-label="Sessions"></div>
+
+          <div class="controls">
+            <button class="ctrl ghost" id="resetBtn" aria-label="Reset">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+            </button>
+            <button class="ctrl primary" id="startBtn"></button>
+            <button class="ctrl ghost" id="skipBtn" aria-label="Skip">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M5 5l9 7-9 7V5zm10 0h3v14h-3z"/></svg>
+            </button>
+          </div>
+
+          <p class="quote" id="quote"></p>
+
+          <button class="notif-banner hidden" id="notifBanner" data-i18n="enableNotif"></button>
+        </section>
+
+        <!-- About view -->
+        <section id="view-about" class="view">
+          <article class="about" id="aboutContent"></article>
+        </section>
+      </main>
+
+      <nav class="tabbar">
+        <button class="tab active" data-view="timer">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8-6.6 1.4-1.4-1.4-1.4-1.5 1.4A9 9 0 1 0 21 13a9 9 0 0 0-2-5.6zM12 20a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>
+          <span data-i18n="tabTimer"></span>
+        </button>
+        <button class="tab" data-view="about">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1A6 6 0 0 1 16.5 3C19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5L12 21.4z"/></svg>
+          <span data-i18n="tabAbout"></span>
+        </button>
+      </nav>
+
+      <!-- Settings sheet -->
+      <div class="sheet-backdrop hidden" id="sheetBackdrop"></div>
+      <div class="sheet" id="sheet" aria-hidden="true">
+        <div class="sheet-handle"></div>
+        <h2 data-i18n="settings"></h2>
+        <label class="field"><span data-i18n="focusMin"></span><input type="number" min="1" max="120" id="setFocus" /></label>
+        <label class="field"><span data-i18n="shortMin"></span><input type="number" min="1" max="60" id="setShort" /></label>
+        <label class="field"><span data-i18n="longMin"></span><input type="number" min="1" max="60" id="setLong" /></label>
+        <label class="field"><span data-i18n="longEvery"></span><input type="number" min="2" max="10" id="setEvery" /></label>
+        <label class="field switch"><span data-i18n="autoStart"></span><input type="checkbox" id="setAuto" /></label>
+        <label class="field switch"><span data-i18n="sound"></span><input type="checkbox" id="setSound" /></label>
+        <button class="ctrl primary wide" id="saveSettings" data-i18n="save"></button>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
