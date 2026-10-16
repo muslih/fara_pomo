@@ -18,6 +18,7 @@ let settings = load('settings', DEFAULTS)
 // Timer state is persisted so closing/reopening the app keeps the countdown going.
 let state = load('state', { mode: 'focus', remaining: settings.focus * 60, endAt: null, done: 0 })
 let tickId = null
+let aboutPane = 'letter'
 
 const t = (k) => strings[lang][k]
 const duration = (mode) => settings[mode] * 60
@@ -31,6 +32,7 @@ function applyLang() {
   $('#langBtn').textContent = lang === 'id' ? 'EN' : 'ID'
   $$('[data-i18n]').forEach((el) => (el.textContent = t(el.dataset.i18n)))
   $('#aboutContent').innerHTML = t('about')
+  showPane(aboutPane)
   const q = t('quotes')
   $('#quote').textContent = q[Math.floor(Math.random() * q.length)]
   render()
@@ -207,6 +209,12 @@ function showView(name) {
   window.scrollTo({ top: 0 })
 }
 
+function showPane(name) {
+  aboutPane = name
+  $$('.subtab').forEach((b) => b.classList.toggle('active', b.dataset.pane === name))
+  $$('.pane').forEach((p) => p.classList.toggle('active', p.dataset.pane === name))
+}
+
 function openSheet() {
   $('#setFocus').value = settings.focus
   $('#setShort').value = settings.short
@@ -242,6 +250,12 @@ $('#langBtn').addEventListener('click', () => {
   localStorage.setItem('lang', lang)
   applyLang()
 })
+$('#aboutContent').addEventListener('click', (e) => {
+  const btn = e.target.closest('.subtab')
+  if (!btn) return
+  showPane(btn.dataset.pane)
+  window.scrollTo({ top: 0 })
+})
 $('#notifBanner').addEventListener('click', ensureNotifPermission)
 $('#settingsBtn').addEventListener('click', openSheet)
 $('#sheetBackdrop').addEventListener('click', closeSheet)
@@ -274,6 +288,7 @@ document.addEventListener('visibilitychange', () => {
 applyLang()
 updateNotifBanner()
 if (location.hash === '#about') showView('about')
+if (location.hash === '#pomodoro') { showView('about'); showPane('pomo') }
 if (running()) {
   if (remainingNow() <= 0) finish()
   else loop()

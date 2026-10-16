@@ -35,46 +35,28 @@ export const strings = {
       'Pelan-pelan, yang penting konsisten.'
     ],
     about: `
-      <h1>Untukmu, Fara</h1>
-      <p class="lead">Di permukaan, ini cuma timer pomodoro. 25 menit fokus, 5 menit istirahat. Tapi di balik setiap detiknya, ada hal-hal yang belum sempat aku katakan.</p>
-
-      <div class="card">
-        <span class="num">1</span>
-        <div>
-          <h3>Kamu berhasil</h3>
-          <p>Kamu baru saja diterima bekerja. Aku tahu betapa keras kamu berjuang untuk sampai di titik ini, dan dari jauh pun aku ikut bangga sampai dadaku sesak. Aku cuma menyesal tidak bisa berdiri di sampingmu waktu kabar baik itu datang.</p>
-        </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" data-pane="letter">Untukmu, Fara</button>
+        <button class="subtab" data-pane="pomo">Tentang Pomodoro</button>
       </div>
 
-      <div class="card">
-        <span class="num">2</span>
-        <div>
-          <h3>Saat aku menghilang</h3>
-          <p>Waktu aku kena layoff, duniaku runtuh. Aku tenggelam dalam depresi, begitu dalam sampai aku tidak bisa melihat siapa pun, termasuk kamu. Kamu sedang punya masalah, kamu butuh aku, dan aku tidak ada. Itu kesalahan terbesarku. Tidak ada alasan yang bisa menghapusnya, dan aku mengerti kenapa kamu memilih pergi.</p>
+      <div class="pane" data-pane="letter">
+        <div class="letter">
+          <p class="greeting">Fara,</p>
+          <p>Di permukaan, ini cuma timer pomodoro. Tapi setiap baris kodenya aku tulis sambil memikirkanmu, karena ada begitu banyak hal yang belum sempat aku katakan.</p>
+          <p>Kamu baru saja diterima bekerja. Aku tahu betapa keras kamu berjuang untuk sampai di titik ini, dan dari jauh pun aku ikut bangga sampai dadaku sesak. Yang paling aku sesali, aku tidak ada di sampingmu saat kabar baik itu datang.</p>
+          <p>Waktu aku kena layoff, duniaku runtuh. Aku tenggelam dalam depresi, begitu dalam sampai aku tidak bisa melihat siapa pun, bahkan kamu. Kamu sedang menghadapi masalahmu sendiri, kamu butuh aku, dan aku tidak ada. Itu kesalahan terbesarku. Tidak ada alasan yang bisa menghapusnya, dan aku mengerti kenapa kamu memilih pergi.</p>
+          <p>Aplikasi ini caraku untuk tetap hadir, meski dari jauh. Setiap kali timer berbunyi dan kamu berhenti sejenak, anggap itu aku yang datang pelan-pelan dan berkata: <em>istirahatlah sebentar, kamu sudah berjuang dengan baik hari ini.</em> Dulu aku gagal ada untukmu. Sekarang aku ingin ada, bahkan lewat hal sekecil ini.</p>
+          <p>Aku sudah belajar dari semua ini. Aku sedang memperbaiki diriku, pelan-pelan dan sungguh-sungguh, dan di setiap langkahnya, yang aku bayangkan selalu kamu. Aku tidak meminta kamu melupakan semuanya. Aku hanya memohon satu kesempatan lagi.</p>
+          <p class="plea">Maafkan aku, Fara. Izinkan aku kembali bersamamu.</p>
         </div>
+
+        <p class="sign">Aku masih di sini, menunggumu 🤍</p>
+        <p class="meta">Aku menunggumu kembali, menunggumu balik.</p>
       </div>
 
-      <div class="card">
-        <span class="num">3</span>
-        <div>
-          <h3>Setiap detik di sini adalah aku</h3>
-          <p>Aplikasi ini caraku tetap hadir, meski dari jauh. Setiap kali timer berbunyi dan kamu berhenti sejenak, itu aku yang berbisik: <em>jaga dirimu, minum airmu, kamu tidak sendirian.</em> Dulu aku gagal hadir untukmu. Sekarang aku ingin hadir, bahkan lewat hal sekecil ini.</p>
-        </div>
-      </div>
+      <div class="pane" data-pane="pomo">
 
-      <div class="card highlight">
-        <span class="num">4</span>
-        <div>
-          <h3>Aku ingin pulang padamu</h3>
-          <p>Aku sudah belajar dari semua ini. Aku sedang memperbaiki diriku, pelan-pelan, sungguh-sungguh. Dan di setiap langkahnya, yang aku bayangkan adalah kamu. Aku tidak meminta kamu lupa, aku cuma memohon satu kesempatan lagi. Maafkan aku, dan izinkan aku kembali bersamamu.</p>
-        </div>
-      </div>
-
-      <p class="sign">Aku masih di sini, menunggumu 🤍</p>
-      <p class="meta">Aku menunggumu kembali, menunggumu balik.</p>
-      <hr class="divider" />
-
-      <h2>Tentang Pomodoro</h2>
       <p class="lead">Teknik Pomodoro adalah metode manajemen waktu yang diciptakan oleh <strong>Francesco Cirillo</strong> di akhir 1980-an, saat ia masih mahasiswa di Italia. Namanya diambil dari timer dapur berbentuk tomat (<em>pomodoro</em> dalam bahasa Italia) yang ia pakai.</p>
 
       <ol class="steps">
@@ -101,6 +83,7 @@ export const strings = {
       </div>
       <p class="note">Catatan: angka 25 menit itu sendiri bukan hasil riset, melainkan pilihan Cirillo. Yang didukung bukti adalah manfaat jeda yang teratur. Kalau 25 menit terasa kurang pas, kamu bisa mengubahnya di Pengaturan.</p>
 
+      </div>
     `
   },
   en: {
@@ -139,46 +122,28 @@ export const strings = {
       'Slow and steady is still progress.'
     ],
     about: `
-      <h1>For You, Fara</h1>
-      <p class="lead">On the surface, it’s just a pomodoro timer. 25 minutes of focus, 5 minutes of rest. But behind every second are things I never got the chance to say.</p>
-
-      <div class="card">
-        <span class="num">1</span>
-        <div>
-          <h3>You made it</h3>
-          <p>You just got hired. I know how hard you fought to get here, and even from a distance I’m so proud of you it aches. My only regret is that I couldn’t stand beside you when the good news came.</p>
-        </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" data-pane="letter">For You, Fara</button>
+        <button class="subtab" data-pane="pomo">About Pomodoro</button>
       </div>
 
-      <div class="card">
-        <span class="num">2</span>
-        <div>
-          <h3>When I disappeared</h3>
-          <p>When I got laid off, my world fell apart. I sank into depression, so deep that I couldn’t see anyone, not even you. You were struggling, you needed me, and I wasn’t there. That is my biggest mistake. No excuse can erase it, and I understand why you chose to leave.</p>
+      <div class="pane" data-pane="letter">
+        <div class="letter">
+          <p class="greeting">Fara,</p>
+          <p>On the surface, it’s just a pomodoro timer. But I wrote every line of it thinking of you, because there are so many things I never got the chance to say.</p>
+          <p>You just got hired. I know how hard you fought to get here, and even from a distance I’m so proud of you it aches. What I regret most is that I wasn’t beside you when the good news came.</p>
+          <p>When I got laid off, my world fell apart. I sank into depression, so deep that I couldn’t see anyone, not even you. You were facing your own struggles, you needed me, and I wasn’t there. That is my biggest mistake. No excuse can erase it, and I understand why you chose to leave.</p>
+          <p>This app is my way of staying present, even from afar. Every time the timer rings and you pause for a moment, think of it as me coming in quietly to say: <em>rest for a while, you’ve fought well today.</em> I failed to be there for you before. Now I want to be there, even through something this small.</p>
+          <p>I’ve learned from all of this. I’m rebuilding myself, slowly and sincerely, and with every step, it’s always you I picture. I’m not asking you to forget everything. I’m only begging for one more chance.</p>
+          <p class="plea">Forgive me, Fara. Let me come back to you.</p>
         </div>
+
+        <p class="sign">I’m still here, waiting for you 🤍</p>
+        <p class="meta">I’m waiting for you to come back, waiting for you to return.</p>
       </div>
 
-      <div class="card">
-        <span class="num">3</span>
-        <div>
-          <h3>Every second here is me</h3>
-          <p>This app is my way of staying present, even from afar. Every time the timer rings and you pause for a moment, that’s me whispering: <em>take care of yourself, drink your water, you are not alone.</em> I failed to be there for you before. Now I want to be there, even through something this small.</p>
-        </div>
-      </div>
+      <div class="pane" data-pane="pomo">
 
-      <div class="card highlight">
-        <span class="num">4</span>
-        <div>
-          <h3>I want to come home to you</h3>
-          <p>I’ve learned from all of this. I’m rebuilding myself, slowly and sincerely, and with every step, it’s you I picture. I’m not asking you to forget. I’m only begging for one more chance. Forgive me, and let me come back to you.</p>
-        </div>
-      </div>
-
-      <p class="sign">I’m still here, waiting for you 🤍</p>
-      <p class="meta">I’m waiting for you to come back, waiting for you to return.</p>
-      <hr class="divider" />
-
-      <h2>About Pomodoro</h2>
       <p class="lead">The Pomodoro Technique is a time management method created by <strong>Francesco Cirillo</strong> in the late 1980s, while he was a university student in Italy. It’s named after the tomato-shaped kitchen timer (<em>pomodoro</em> in Italian) he used.</p>
 
       <ol class="steps">
@@ -205,6 +170,7 @@ export const strings = {
       </div>
       <p class="note">Note: the 25-minute number itself isn’t from research, it was Cirillo’s choice. What the evidence supports is the value of regular breaks. If 25 minutes doesn’t feel right, you can change it in Settings.</p>
 
+      </div>
     `
   }
 }
